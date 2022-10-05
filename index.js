@@ -80,10 +80,27 @@ Dizel.poop();
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car( carAttr ) 
+{
+  this.model = 'BatMobile';
+  this.milesPerGallon = 20;
+  this.tank = 0;
+  this.odometer = 0;
 }
 
+Car.prototype.fill = function( fuelAmnt )
+{
+  this.tank += fuelAmnt;
+  console.log( `${this.model} has ${this.tank} gallons in the tank.`)
+}
+
+
+const camaro = new Car({});
+camaro.model = 'Camaro';
+camaro.milesPerGallon = 20;
+camaro.fill(20);
+const batmobile = new Car({});
+batmobile.fill(20);
 
 /*
   TASK 3
