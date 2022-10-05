@@ -41,6 +41,7 @@ Person.prototype.toString = function( )
     return( `${this.name}, ${this.age}`);
 }
 
+Baby.prototype = Object.create(Person.prototype);
 Person.prototype.poop = function ()
 {
   console.log(`${this.name}, has is relieved to have an empty stomach.`);
@@ -110,9 +111,23 @@ batmobile.fill(20);
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
-
+function Baby( babyAttr ) 
+{
+  Person.call( this, babyAttr );
+  this.name = 'Lucy';
+  this.age = 5;
+  this.favoriteToy = 'trains';
 }
+
+Baby.prototype.play = function (  )
+{
+  return `Playing with ${this.favoriteToy}`;
+}
+
+
+const lucy = new Baby();
+lucy.play(  );
+
 
 
 /* 
